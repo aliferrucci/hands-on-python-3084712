@@ -26,9 +26,14 @@ with open("laureates.csv", "r") as f:
 # 2. You can add to a list using
 #      my_list.append("something")
 
+# Stores a list of dictionaries,
+# With each dictionary is a nobel prize winner
+# only want nobel prize winner with name starts with A
 laureates_beginning_with_a = []
-# LinkedIn learner code here
-
+for laureate in laureates:
+    name = laureate.get("name", "")
+    if name.lower().startswith("a"):
+        laureates_beginning_with_a.append(laureate)
 
 with open("laureates.json", "w") as f:
     json.dump(laureates_beginning_with_a, f, indent=2)
