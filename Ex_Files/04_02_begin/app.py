@@ -12,12 +12,16 @@ with open("laureates.csv", "r", encoding="utf-8") as f:
 @app.route("/")
 def index():
     # template found in templates/index.html
-    return "your code here!"
+    # render_template will render the HTML file (index.html)
+    # it will call the laureates endpoint
+    # which will return the laureates data in JSON format
+    # and pass it to the template
+    return render_template("index.html")
 
 
 @app.route("/laureates/")
 def laureate():
-    return "your code here!"
+    return jsonify(laureates)
 
 
 app.run(debug=True)
